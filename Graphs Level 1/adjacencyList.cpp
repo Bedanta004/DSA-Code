@@ -6,7 +6,7 @@ using namespace std;
 class Graph{
     public:
     unordered_map<int, list<int>> adjList;
-    //used to add new edge
+    //used to add new edge 12
     void addEdge(int u, int v, bool direction){
         //direction=0, undirected
         //direction=1, directed
