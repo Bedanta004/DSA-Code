@@ -8,7 +8,7 @@ class Graph{
     public:
     unordered_map<int, list<int>> adjList;
     void addEdge(int u, int v, bool direction){
-        //direction=0, undirected
+        //direction=0, undirected 
         //direction=1, directed
         if(direction == 1){
             //u se v ki taraf ek edge hai
