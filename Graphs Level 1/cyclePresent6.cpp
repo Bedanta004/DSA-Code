@@ -60,6 +60,7 @@ class Graph{
                 }
                 else if(visited[nbr] == true && nbr != parent[frontNode]){
                     //cycle present
+                    cout<< "Cycle present in node : "<<nbr<<endl;
                     return true;
                 }
             }

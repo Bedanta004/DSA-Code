@@ -28,27 +28,29 @@ class Graph{
             cout<<endl;
         }
     }
+
     void topoSortDfs(int src, map<int,bool>& visited, stack<int> &st){
         visited[src] = true;
-        for(auto nbr: adj[src]){
-            for(auto nbr: adj[src]){
+        for(auto nbr: adj[src]) {
                 if(!visited[nbr]){
                     //neighbour isn't visited; dfs call
                     topoSortDfs(nbr, visited, st);
                 }
-            }
-            //har call se wapas aate hue stack me insert karna hai
-            st.push(src);
+
         }
+        //har call se wapas aate hue stack me insert karna hai
+        st.push(src);
     }
+
     //topological sort using BFS
     //counts indegree
     void topoSortBfs(int n){
         queue<int> q;
-        map<int,int> indegree;
+        unordered_map<int,int> indegree;
 
-        for(auto i: adj){
-            for(auto nbr: i.second){
+        // initialize indegree
+        for(auto &i: adj){
+            for(auto &nbr: i.second){
                 indegree[nbr]++;
             }
         }
@@ -69,6 +71,7 @@ class Graph{
             for(auto nbr: adj[frontNode]){
                 indegree[nbr]--;
                 //chck for 0
+                // when indegree is 0, push it into queue
                 if(indegree[nbr] == 0){
                     q.push(nbr);
                 }
@@ -88,6 +91,10 @@ int main(){
     g.addEdge(5,6,1);
     g.addEdge(5,7,1);
     g.printAdjList();
+
+    int n = 8;
+    cout<<"Topological sort order using BFS is: "<<endl;
+    g.topoSortBfs(8);
 
     
 }

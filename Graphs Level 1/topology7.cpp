@@ -28,19 +28,19 @@ class Graph{
             cout<<endl;
         }
     }
+
     void topoSortDfs(int src, map<int,bool>& visited, stack<int> &st){
         visited[src] = true;
         for(auto nbr: adj[src]){
-            for(auto nbr: adj[src]){
                 if(!visited[nbr]){
                     //neighbour isn't visited; dfs call
                     topoSortDfs(nbr, visited, st);
                 }
             }
-            //har call se wapas aate hue stack me insert karna hai
-            st.push(src);
-        }
+         //har call se wapas aate hue stack me insert karna hai    
+        st.push(src);
     }
+
     void topoSortBfs(){
         queue<int> q;
         map<int,int> indegree;
